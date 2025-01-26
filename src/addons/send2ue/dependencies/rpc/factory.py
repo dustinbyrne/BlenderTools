@@ -158,8 +158,8 @@ class RPCFactory:
         if doc_string:
             # the doc string may not contain the exact same whitespace as the
             # code, so we'll remove it with a regex
-            doc_string_lines = map(str.strip, doc_string.split('\n'))
-            re_doc_string = rf"[\"']{{3}}{"\s+".join(doc_string_lines)}[\"']{{3}}"
+            doc_string_lines = '\\s+'.join(map(str.strip, doc_string.split('\n')))
+            re_doc_string = rf"[\"']{{3}}{doc_string_lines}[\"']{{3}}"
             code = re.sub(re_doc_string, '', '\n'.join(code)).split('\n')
 
         return code
