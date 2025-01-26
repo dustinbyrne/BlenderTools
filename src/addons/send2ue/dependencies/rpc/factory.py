@@ -115,7 +115,7 @@ class RPCFactory:
                 if line.startswith('def '):
                     continue
 
-                if key in re.split('\.|\(| ', line.strip()):
+                if key in re.split('\\.|\\(| ', line.strip()):
                     if os.path.basename(self.file_path) == '__init__.py':
                         base_name = os.path.basename(os.path.dirname(self.file_path))
                     else:
